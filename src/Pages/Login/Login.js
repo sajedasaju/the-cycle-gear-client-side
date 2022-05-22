@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from './../../firebase.init';
 import Loading from './../Shared/Loading/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Sociallogin from './Sociallogin/Sociallogin';
 import { toast } from 'react-toastify';
+import emailIcon from '../../assets/icons/email.png'
 
 const Login = () => {
-    const [userInfo, setUserInfo] = useState({
-        email: "",
-        password: "",
-    })
+    const [email, setEmail] = useState('');
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
@@ -71,18 +69,7 @@ const Login = () => {
         // navigate(from, { replace: true });
         navigate('/');
     }
-    const handleEmailChange = (event) => {
 
-        const validEmail = event.target.value;
-        if (validEmail) {
-            setUserInfo({ ...userInfo, email: event.target.value })
-
-        }
-        else {
-
-            setUserInfo({ ...userInfo, email: "" })
-        }
-    }
 
 
     const onSubmit = data => {
@@ -91,9 +78,9 @@ const Login = () => {
     };
 
     const resetPassword = async () => {
-
-        if (userInfo.email) {
-            await sendPasswordResetEmail(userInfo.email);
+        console.log(email)
+        if (email) {
+            await sendPasswordResetEmail(email);
             toast.error("Sent Email")
         }
         else {
@@ -106,7 +93,7 @@ const Login = () => {
     return (
 
         <div class=" h-screen overflow-hidden flex items-center justify-center">
-            <div class="bg-white lg:w-96 md:w-5/12	 w-10/12 shadow-3xl shadow-2xl shadow-2xl border-l-4 border-solid border-slate-900 rounded-2xl mb-10">
+            <div class="bg-white lg:w-96 md:w-5/12	 w-10/12 shadow-3xl shadow-2xl shadow-2xl border-l-4 border-solid border-slate-900 rounded-2xl mb-10 pb-10">
 
 
 
@@ -119,23 +106,26 @@ const Login = () => {
                 <form onSubmit={handleSubmit(onSubmit)} class="p-6  pt-16 pb-0">
                     <div className='mb-6 '>
                         <div class="flex items-center text-lg ">
-                            <svg class="absolute ml-3" width="24" viewBox="0 0 24 24">
-                                <path d="M20.822 18.096c-3.439-.794-6.64-1.49-5.09-4.418 4.72-8.912 1.251-13.678-3.732-13.678-5.082 0-8.464 4.949-3.732 13.678 1.597 2.945-1.725 3.641-5.09 4.418-3.073.71-3.188 2.236-3.178 4.904l.004 1h23.99l.004-.969c.012-2.688-.092-4.222-3.176-4.935z" />
-                            </svg>
-                            <input onChange={handleEmailChange}
+                            <span className=' absolute ml-3'><img src={emailIcon} alt="" height='24px' width='23px' /></span>
+                            <input
+
                                 type="email"
                                 placeholder="Your Email"
                                 className="input input-bordered w-full  bg-gray-200 pl-12 py-2 md:py-4 focus:outline-none w-full"
-                                {...register("email", {
-                                    required: {
-                                        value: true,
-                                        message: "Email is required"
-                                    },
-                                    pattern: {
-                                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                        message: 'Please provide a valid email'
-                                    }
-                                })}
+                                {...register("email",
+
+                                    {
+                                        required: {
+                                            value: true,
+                                            message: "Email is required"
+                                        },
+                                        pattern: {
+                                            value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                            message: 'Please provide a valid email'
+                                        },
+                                        onChange: (e) => { setEmail(e.target.value) }
+
+                                    })}
                             />
 
                         </div>
