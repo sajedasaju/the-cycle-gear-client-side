@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import Sociallogin from './Sociallogin/Sociallogin';
 import { toast } from 'react-toastify';
 import emailIcon from '../../assets/icons/email.png'
+import useToken from './../../hooks/useToken';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -47,18 +48,17 @@ const Login = () => {
     }, [error])
 
 
-    // const [token] = useToken(user || gUser)
+    const [token] = useToken(user)
 
-    // useEffect(() => {
-    //     if (token) {
-    //         // console.log(user || gUser)
-    //         navigate(from, { replace: true });
-    //     }
-    // }, [token, from, navigate])
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate])
 
-    if (user) {
-        navigate(from, { replace: true });
-    }
+    // if (user) {
+    //     navigate(from, { replace: true });
+    // }
 
 
 

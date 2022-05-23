@@ -4,10 +4,21 @@ import auth from './../../../firebase.init';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import useToken from './../../../hooks/useToken';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Sociallogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     const [token] = useToken(user)
+    useEffect(() => {
+        if (token) {
+            // console.log(user || gUser)
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate])
+
     useEffect(() => {
 
         if (error) {
@@ -22,13 +33,6 @@ const Sociallogin = () => {
     }
 
 
-
-    // useEffect(() => {
-    //     if (token) {
-    //         // console.log(user || gUser)
-    //         navigate(from, { replace: true });
-    //     }
-    // }, [token, from, navigate])
 
 
     return (

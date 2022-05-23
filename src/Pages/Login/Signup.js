@@ -22,9 +22,9 @@ const Signup = () => {
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const [token] = useToken(user)
-    // if (token) {
-    //     navigate('/dashboard')
-    // }
+    if (token) {
+        navigate('/dashboard')
+    }
 
     if (user) {
         // navigate('/dashboard')
