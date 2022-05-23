@@ -6,119 +6,174 @@ import auth from './../../../firebase.init';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
-    const [user] = useAuthState(auth);
-
-    const hangleSignOut = () => {
+    const [user, loading, error] = useAuthState(auth);
+    const logout = () => {
         signOut(auth);
-    }
-    return (
-        <div className='bg-[#dadadad3] sticky top-0 z-50	 '>
-            <nav className="flex justify-between flex-wrap px-2 pt-2 ">
-                <div className="container mx-auto px-4 flex  flex-wrap items-center ">
-                    <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-                        <span
-                            className="flex items-center"
-                        >
-                            <Link to="/">hhhh
-                            </Link>
+        localStorage.removeItem('accessToken')
 
-                        </span>
-                        <button
-                            className="lg:hidden  p-2  "
-                            type="button"
-                            onClick={() => setOpen(!open)}
-                        >
-                            {
-                                open ? <p>show</p> :
-                                    <p>close</p>
-                            }
+    };
 
-                        </button>
-                    </div>
-                    <div
-                        className=
-                        {
-                            "lg:flex flex-grow items-center" +
-                            (open ? " flex" : " hidden")
-                        }
-                    >
-                        <div className="flex flex-col md:flex-row lg:flex-row lg:ml-auto lg:px-10 ">
-                            <NavLink
-                                className={({ isActive }) => isActive ? " nav-item px-3 mb-2 flex items-center text-amber-700 border-amber-800 text-lg	 font-bold border-b-2 mr-2"
-                                    :
-                                    "nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold hover:border-b-2"}
-                                as={Link} to="/home">
-                                Home
-                            </NavLink>
-                            <NavLink
-                                className={({ isActive }) => isActive ? " nav-item px-3 mb-2 flex items-center text-amber-700 border-amber-800 text-lg	 font-bold border-b-2"
-                                    :
-                                    "nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold hover:border-b-2"}
-                                as={Link} to="/home">
-                                Inventory
-                            </NavLink>
-                            <NavLink
-                                className={({ isActive }) => isActive ? " nav-item px-3 mb-2 flex items-center text-amber-700 border-amber-800 text-lg	 font-bold border-b-2"
-                                    :
-                                    "nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold hover:border-b-2"}
-                                as={Link} to="/">
-                                About
-                            </NavLink>
+    const menuItems = <>
+        <li><Link to='/'>Tools</Link></li>
+        <li><Link to='/appointment'>Appointment</Link></li>
+        <li><Link to='/review'>Reviews</Link></li>
+        <li><Link to='/contact'>Contact Us</Link></li>
+        <li><Link to='/about'>About</Link></li>
+        {
+            user && <li><Link to='/dashboard'>Dashboard</Link></li>
 
-                            <NavLink
-                                className={({ isActive }) => isActive ? " nav-item px-3 mb-2 flex items-center text-amber-700 border-amber-800 text-lg	 font-bold border-b-2"
-                                    :
-                                    "nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold hover:border-b-2"}
-                                as={Link} to="/">
-                                Blog
-                            </NavLink>
-
-                            {
-                                user && <>
-                                    <NavLink as={Link} to='/' className={({ isActive }) => isActive ? " nav-item px-3 mb-2 flex items-center text-amber-700 border-amber-800 text-lg	 font-bold border-b-2"
-                                        :
-                                        "nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold hover:border-b-2"}>Add Inventories</NavLink>
-
-                                    <NavLink className={({ isActive }) => isActive ? " nav-item px-3 mb-2 flex items-center text-amber-700 border-amber-800 text-lg	 font-bold border-b-2"
-                                        :
-                                        "nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold hover:border-b-2"} as={Link} to="/"  >Manage Inventories</NavLink>
-                                    <NavLink
-                                        className={({ isActive }) => isActive ? " nav-item px-3 mb-2 flex items-center text-amber-700 border-amber-800 text-lg	 font-bold border-b-2"
-                                            :
-                                            "nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold hover:border-b-2"}
-                                        as={Link} to="/myInventories" >My Inventories</NavLink>
-                                </>
-                            }
-
-
-                            {
-                                user ?
-                                    <NavLink className="nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold "
-                                        as={Link} to="/login">
-                                        <button onClick={hangleSignOut} type="button" className="px-6 py-2 font-bold bg-transparent rounded-lg
-                                     border-2  border-yellow-600 hover:bg-yellow-700  hover:text-white ">Logout</button>
-
-                                    </NavLink>
-                                    :
-                                    <NavLink
-                                        className="nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold "
-                                        as={Link} to="/login">
-                                        <button type="button" className="px-6 py-2 font-bold bg-transparent rounded-lg
-                                     border-2  border-yellow-600 hover:bg-yellow-700  hover:text-white  ">Login</button>
-                                    </NavLink>
-                            }
-
+        }
+        <li>{user ?
+            <>
+                <div className='pl-0'>
+                    <button onClick={logout} className="btn btn-ghost pr-0">Sign Out</button>
+                    <div class="avatar">
+                        <div class="w-12 rounded-full">
+                            <img src={user?.photoURL} />
                         </div>
-
-                    </div>
-                    <div className="">
-                        <label tabIndex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                        </label>
                     </div>
                 </div>
-            </nav>
+            </>
+            : <Link to='/login'>Login</Link>}</li>
+    </>
+    return (
+
+
+        <div className="navbar bg-base-100">
+            <div className="navbar-start">
+                <div className="dropdown">
+                    <label tabIndex="0" className="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </label>
+                    <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 bg-white">
+                        {menuItems}
+                    </ul>
+                </div>
+                <a className="btn btn-ghost normal-case text-xl">Doctors Portal</a>
+            </div>
+
+
+            <div className="navbar-center hidden lg:flex">
+                <ul className="menu menu-horizontal p-0">
+                    {menuItems}
+                </ul>
+            </div>
+
+            <div className="navbar-end">
+                <label tabIndex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
+            </div>
+
         </div>
+
+        // <div className='bg-[#dadadad3] sticky top-0 z-50	 '>
+        //     <nav className="flex justify-between flex-wrap px-2 pt-2 ">
+        //         <div className="container mx-auto px-4 flex  flex-wrap items-center ">
+        //             <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+        //                 <span
+        //                     className="flex items-center"
+        //                 >
+        //                     <Link to="/">hhhh
+        //                     </Link>
+
+        //                 </span>
+        //                 <button
+        //                     className="lg:hidden  p-2  "
+        //                     type="button"
+        //                     onClick={() => setOpen(!open)}
+        //                 >
+        //                     {
+        //                         open ? <p>show</p> :
+        //                             <p>close</p>
+        //                     }
+
+        //                 </button>
+        //             </div>
+        //             <div
+        //                 className=
+        //                 {
+        //                     "lg:flex flex-grow items-center" +
+        //                     (open ? " flex" : " hidden")
+        //                 }
+        //             >
+        //                 <div className="flex flex-col md:flex-row lg:flex-row lg:ml-auto lg:px-10 ">
+        //                     <NavLink
+        //                         className={({ isActive }) => isActive ? " nav-item px-3 mb-2 flex items-center text-amber-700 border-amber-800 text-lg	 font-bold border-b-2 mr-2"
+        //                             :
+        //                             "nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold hover:border-b-2"}
+        //                         as={Link} to="/home">
+        //                         Home
+        //                     </NavLink>
+        //                     <NavLink
+        //                         className={({ isActive }) => isActive ? " nav-item px-3 mb-2 flex items-center text-amber-700 border-amber-800 text-lg	 font-bold border-b-2"
+        //                             :
+        //                             "nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold hover:border-b-2"}
+        //                         as={Link} to="/home">
+        //                         Inventory
+        //                     </NavLink>
+        //                     <NavLink
+        //                         className={({ isActive }) => isActive ? " nav-item px-3 mb-2 flex items-center text-amber-700 border-amber-800 text-lg	 font-bold border-b-2"
+        //                             :
+        //                             "nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold hover:border-b-2"}
+        //                         as={Link} to="/">
+        //                         About
+        //                     </NavLink>
+
+        //                     <NavLink
+        //                         className={({ isActive }) => isActive ? " nav-item px-3 mb-2 flex items-center text-amber-700 border-amber-800 text-lg	 font-bold border-b-2"
+        //                             :
+        //                             "nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold hover:border-b-2"}
+        //                         as={Link} to="/">
+        //                         Blog
+        //                     </NavLink>
+
+        //                     {
+        //                         user && <>
+        //                             <NavLink as={Link} to='/' className={({ isActive }) => isActive ? " nav-item px-3 mb-2 flex items-center text-amber-700 border-amber-800 text-lg	 font-bold border-b-2"
+        //                                 :
+        //                                 "nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold hover:border-b-2"}>Add Inventories</NavLink>
+
+        //                             <NavLink className={({ isActive }) => isActive ? " nav-item px-3 mb-2 flex items-center text-amber-700 border-amber-800 text-lg	 font-bold border-b-2"
+        //                                 :
+        //                                 "nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold hover:border-b-2"} as={Link} to="/"  >Manage Inventories</NavLink>
+        //                             <NavLink
+        //                                 className={({ isActive }) => isActive ? " nav-item px-3 mb-2 flex items-center text-amber-700 border-amber-800 text-lg	 font-bold border-b-2"
+        //                                     :
+        //                                     "nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold hover:border-b-2"}
+        //                                 as={Link} to="/myInventories" >My Inventories</NavLink>
+        //                         </>
+        //                     }
+
+
+        //                     {
+        //                         user ?
+        //                             <NavLink className="nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold "
+        //                                 as={Link} to="/login">
+        //                                 <button onClick={hangleSignOut} type="button" className="px-6 py-2 font-bold bg-transparent rounded-lg
+        //                              border-2  border-yellow-600 hover:bg-yellow-700  hover:text-white ">Logout</button>
+
+        //                             </NavLink>
+        //                             :
+        //                             <NavLink
+        //                                 className="nav-item px-3 mb-2 flex items-center text-yellow-500 hover:border-yellow-500 font-bold "
+        //                                 as={Link} to="/login">
+        //                                 <button type="button" className="px-6 py-2 font-bold bg-transparent rounded-lg
+        //                              border-2  border-yellow-600 hover:bg-yellow-700  hover:text-white  ">Login</button>
+        //                             </NavLink>
+        //                     }
+
+        //                 </div>
+
+        //             </div>
+        //             <div className="">
+        //                 <label tabIndex="1" for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+        //                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+        //                 </label>
+        //             </div>
+        //         </div>
+        //     </nav>
+        // </div>
     );
 };
 

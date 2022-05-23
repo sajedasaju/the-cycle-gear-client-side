@@ -1,0 +1,21 @@
+.notFound{
+    background-image: url(../../../assets/notFound/dribbble_1.gif);
+    height: 78vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: overlay;
+    background-position-x: center;
+}
+
+ 
+ .four-o-four {
+ font-size:80px;
+ padding-bottom: 0;
+ 
+ }
+ .four-o-four-h1-color{
+     color: #866207;
+     font-weight: 900;
+     padding-top: 40px;
+ }

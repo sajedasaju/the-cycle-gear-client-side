@@ -3,9 +3,11 @@ import Loading from './../../Shared/Loading/Loading';
 import auth from './../../../firebase.init';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import useToken from './../../../hooks/useToken';
 
 const Sociallogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [token] = useToken(user)
     useEffect(() => {
 
         if (error) {
@@ -19,7 +21,7 @@ const Sociallogin = () => {
         return <Loading></Loading>
     }
 
-    // const [token] = useToken(user || gUser)
+
 
     // useEffect(() => {
     //     if (token) {

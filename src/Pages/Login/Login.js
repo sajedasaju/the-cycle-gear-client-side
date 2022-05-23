@@ -56,6 +56,10 @@ const Login = () => {
     //     }
     // }, [token, from, navigate])
 
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
 
 
 

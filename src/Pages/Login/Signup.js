@@ -7,6 +7,7 @@ import auth from './../../firebase.init';
 import Sociallogin from './Sociallogin/Sociallogin';
 import email from '../../assets/icons/email.png'
 import { toast } from 'react-toastify';
+import useToken from './../../hooks/useToken';
 
 const Signup = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -20,12 +21,14 @@ const Signup = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-    // const [token] = useToken(user)
+    const [token] = useToken(user)
     // if (token) {
-    //     // console.log(user || gUser)
-    //     navigate('/appointment')
-
+    //     navigate('/dashboard')
     // }
+
+    if (user) {
+        // navigate('/dashboard')
+    }
 
     useEffect(() => {
         if (error) {
@@ -48,7 +51,7 @@ const Signup = () => {
 
         }
 
-    }, [error, updateError])
+    }, [error])
 
 
     if (loading || updating) {
