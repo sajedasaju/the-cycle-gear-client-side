@@ -17,6 +17,7 @@ import Users from './Pages/Dashboard/Users';
 import RequireAdmin from './Pages/Login/RequireAdmin';
 import AddTools from './Pages/Dashboard/AddTools';
 import ToolDetails from './Pages/Home/ToolDetails/ToolDetails';
+import MyProfile from './Pages/Dashboard/MyProfile';
 
 function App() {
   return (
@@ -43,7 +44,8 @@ function App() {
         } >
 
           <Route path='orders' element={<MyOrders></MyOrders>} ></Route>
-          <Route index element={<MyReview></MyReview>} ></Route>
+          <Route path='reviews' element={<MyReview></MyReview>} ></Route>
+          <Route index element={<MyProfile></MyProfile>} ></Route>
 
           <Route path='users' element={<RequireAdmin>
             <Users></Users>

@@ -15,7 +15,7 @@ const Users = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    // console.log(users)
+    console.log(users)
 
 
     return (

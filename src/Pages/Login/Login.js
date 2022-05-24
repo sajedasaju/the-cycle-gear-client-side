@@ -68,13 +68,6 @@ const Login = () => {
     }
 
 
-    if (user) {
-
-        // navigate(from, { replace: true });
-        navigate('/');
-    }
-
-
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password)

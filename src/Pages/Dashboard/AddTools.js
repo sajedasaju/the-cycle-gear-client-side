@@ -44,7 +44,7 @@ const AddTools = () => {
                     })
                         .then(res => res.json())
                         .then(added => {
-                            console.log("Tool added", added)
+                            // console.log("Tool added", added)
                             if (added) {
                                 toast.success("Tool added")
                                 reset();
@@ -58,25 +58,6 @@ const AddTools = () => {
 
 
 
-        // const url = 'https://young-chamber-03759.herokuapp.com/task';
-        // fetch(url, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(data)
-        // })
-        //     .then(res => res.json())
-        //     .then(result => {
-        //         if (result.acknowledged) {
-        //             toast.success("Item Added Successfully")
-        //         }
-        //     })
-
-
-        // console.log(e.target[1].value)
-        // e.target[1].value = '';
-        // e.target[0].value = '';
 
     }
     return (
@@ -179,7 +160,7 @@ const AddTools = () => {
 
 
 
-                    {/* Tool Price  feild */}
+                    {/* Tool description  feild */}
                     <div className='form-control w-full '>
                         <textarea className="description bg-gray-100 sec p-3 h-48	 border border-gray-300 outline-none" spellCheck="false" placeholder="Describe everything about this post here" {...register("description", {
                             required: {

@@ -13,7 +13,7 @@ const SingleTools = ({ tool }) => {
 
 
 
-        <div className=" lg:max-w-lg card flex flex-col justify-center p-2 md:p-6 lg:p-6 bg-white rounded-lg shadow-2xl">
+        <div className=" lg:max-w-lg card flex flex-col justify-center p-2 md:p-6 lg:p-6 bg-white rounded-lg shadow-2xl  transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-lg">
             <div className="prod-title">
                 <p className="text-xl  text-gray-900 font-bold">{name}</p>
 
@@ -22,7 +22,7 @@ const SingleTools = ({ tool }) => {
             </div>
             <div className="prod-img relative">
                 <img src={img}
-                    className="w-full object-cover object-center " />
+                    className="w-full object-cover object-center " alt='' />
                 <p className="absolute right-2 top-2 bg-white rounded-full p-2 cursor-pointer group">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 group-hover:opacity-50 opacity-70" fill="none" viewBox="0 0 24 24" stroke="black">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
