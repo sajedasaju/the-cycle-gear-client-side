@@ -37,12 +37,12 @@ const Sociallogin = () => {
 
     return (
 
-        <div class="rounded-t mb-0 ">
+        <div className="rounded-t mb-0 ">
 
-            <div class="btn-wrapper text-center">
+            <div className="btn-wrapper text-center">
 
-                <button onClick={() => signInWithGoogle()} class="btn w-full max-w-xs text-white bg-gradient-to-b from-gray-700 to-gray-900 font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 " type="button">
-                    <img alt="..." class="w-5 mr-1" src="https://demos.creative-tim.com/notus-js/assets/img/google.svg" />Continue With Google </button>
+                <button onClick={() => signInWithGoogle()} className="btn w-full max-w-xs text-white bg-gradient-to-b from-gray-700 to-gray-900 font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 " type="button">
+                    <img alt="..." className="w-5 mr-1" src="https://demos.creative-tim.com/notus-js/assets/img/google.svg" />Continue With Google </button>
 
             </div>
             {/* {signInError} */}

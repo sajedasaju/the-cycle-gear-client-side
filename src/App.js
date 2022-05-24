@@ -16,6 +16,7 @@ import MyReview from './Pages/Dashboard/MyReview';
 import Users from './Pages/Dashboard/Users';
 import RequireAdmin from './Pages/Login/RequireAdmin';
 import AddTools from './Pages/Dashboard/AddTools';
+import ToolDetails from './Pages/Home/ToolDetails/ToolDetails';
 
 function App() {
   return (
@@ -27,6 +28,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="*" element={<NotFound />} />
+        <Route path='/tool/:toolId' element={
+          <RequireAuth>
+            <ToolDetails></ToolDetails>
+          </RequireAuth>
+        }></Route>
+
+
 
         <Route path="/dashboard" element={
           <RequireAuth>
