@@ -19,8 +19,9 @@ const ToolDetails = () => {
 
 
     const onSubmit = (data, e) => {
-        console.log(data)
+        // console.log(data)
         const order = {
+            img: tool.img,
             userName: data.name,
             toolName: tool.name,
             email: data.email,
@@ -30,9 +31,10 @@ const ToolDetails = () => {
             price: tool.price * data.minimumOrder
 
         }
+        // console.log(tool.price * data.minimumOrder)
 
         //send to  database
-        fetch('http://localhost:5000/order', {
+        fetch('https://protected-anchorage-05977.herokuapp.com/order', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
@@ -42,7 +44,7 @@ const ToolDetails = () => {
         })
             .then(res => res.json())
             .then(added => {
-                console.log("order added", added)
+                // console.log("order added", added)
                 if (added) {
                     toast.success("Congratulation! YOur order is added to your cart .")
                     reset();
@@ -52,7 +54,7 @@ const ToolDetails = () => {
                 }
             })
 
-        // console.log("DATAT", order)
+
     }
 
 

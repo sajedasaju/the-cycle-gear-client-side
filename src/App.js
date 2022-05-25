@@ -18,6 +18,7 @@ import RequireAdmin from './Pages/Login/RequireAdmin';
 import AddTools from './Pages/Dashboard/AddTools';
 import ToolDetails from './Pages/Home/ToolDetails/ToolDetails';
 import MyProfile from './Pages/Dashboard/MyProfile';
+import Payment from './Pages/Dashboard/Payment';
 
 function App() {
   return (
@@ -42,10 +43,12 @@ function App() {
             <Dashboard />
           </RequireAuth>
         } >
-
+          <Route index element={<MyProfile></MyProfile>} ></Route>
           <Route path='orders' element={<MyOrders></MyOrders>} ></Route>
           <Route path='reviews' element={<MyReview></MyReview>} ></Route>
-          <Route index element={<MyProfile></MyProfile>} ></Route>
+          <Route path='payment/:id' element={<Payment></Payment>} ></Route>
+
+
 
           <Route path='users' element={<RequireAdmin>
             <Users></Users>

@@ -9,7 +9,7 @@ const AddTools = () => {
         const formData = new FormData();
         const image = data.image[0];
         formData.append('image', image);
-        console.log(data)
+        // console.log(data)
         const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
 
 
@@ -34,7 +34,7 @@ const AddTools = () => {
                     }
 
                     //send to my database
-                    fetch('http://localhost:5000/tool', {
+                    fetch('https://protected-anchorage-05977.herokuapp.com/tool', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',

@@ -5,7 +5,7 @@ import SingleUser from './SingleUser';
 
 const Users = () => {
 
-    const { isLoading, data: users, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
+    const { isLoading, data: users, refetch } = useQuery('users', () => fetch('https://protected-anchorage-05977.herokuapp.com/user', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -15,7 +15,7 @@ const Users = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    console.log(users)
+    // console.log(users)
 
 
     return (

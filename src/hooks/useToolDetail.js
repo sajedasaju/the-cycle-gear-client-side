@@ -4,13 +4,13 @@ import { useQuery } from 'react-query';
 const useToolDetail = (toolId) => {
     const [tool, setTool] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/tool/${toolId}`;
+        const url = `https://protected-anchorage-05977.herokuapp.com/tool/${toolId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTool(data))
     }, [tool])
 
-    // const { isLoading, data: tool, refetch } = useQuery('tool', () => fetch(`http://localhost:5000/tool/${toolId}`, {
+    // const { isLoading, data: tool, refetch } = useQuery('tool', () => fetch(`https://protected-anchorage-05977.herokuapp.com/tool/${toolId}`, {
     //     method: 'GET',
     //     headers: {
     //         authorization: `Bearer ${localStorage.getItem('accessToken')}`
