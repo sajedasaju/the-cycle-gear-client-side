@@ -1,8 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-const MyOrderDetails = ({ order }) => {
-    const { img, price, email, name, toolName, address, phone, orderedQuantity } = order
+const MyOrderDetails = ({ order, refetch, setDeletingOrder }) => {
+    const { img, price, email, name, toolName, address, phone, orderedQuantity } = order;
+    // console.log(setDeletingOrder)
+
+    // const handleDelete = id => {
+    //     console.log("DATA")
+    //     fetch(`http://localhost:5000/order/${id}`, {
+    //         method: "DELETE",
+    //         headers: {
+    //             authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    //         }
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data)
+    //             if (data.deletedCount) {
+    //                 toast.success(`${toolName} is deleted`)
+    //                 refetch();
+    //             }
+    //         })
+    // }
 
     return (
         <div class="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full">
@@ -32,9 +52,13 @@ const MyOrderDetails = ({ order }) => {
 
 
                     {
-                        (!order.paid) ? <button className='btn btn-xs btn-red-500'>Delete</button>
-                            :
-                            <button disabled className='btn btn-xs btn-red-500'>Delete</button>
+                        (!order.paid) &&
+                        <label onClick={() => setDeletingOrder(order)}
+                            for="delete-confirm-modal" class="btn btn-xs btn-error">Delete</label>
+
+
+                        // :
+                        // <button disabled className='btn btn-xs btn-red-500'>Delete</button>
 
                     }
                     {

@@ -7,46 +7,72 @@ import MyOrderDetails from './MyOrderDetails';
 import phoneIcon from '../../assets/icons/phone-call.png'
 import addressIcon from '../../assets/icons/address.png'
 import Loading from './../Shared/Loading/Loading';
+import { useQuery } from 'react-query';
+import DeleteConfirmModal from './DeleteConfirmModal';
 
 const MyOrders = () => {
-    const [orders, setOrders] = useState([])
+    // const [orders, setOrders] = useState([])
     const [user, loading] = useAuthState(auth)
-    // const userDetails = orders.shift();
-    let userDetails;
+    const [deletingOrder, setDeletingOrder] = useState(null)
+    console.log(deletingOrder)
+
+
+    // let userDetails;
     // console.log(orders)
 
 
-    useEffect(() => {
-        if (user) {
-            if (user) {
-                fetch(`https://protected-anchorage-05977.herokuapp.com/order?email=${user.email}`, {
-                    method: 'GET',
-                    headers: {
-                        'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                    }
-                })
-                    .then(res => res.json()
+    // useEffect(() => {
+    //     if (user) {
+    //         if (user) {
+    //             fetch(`https://protected-anchorage-05977.herokuapp.com/order?email=${user.email}`, {
+    //                 method: 'GET',
+    //                 headers: {
+    //                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+    //                 }
+    //             })
+    //                 .then(res => res.json()
 
-                    )
-                    .then(data => {
-                        // console.log(data)
-                        setOrders(data);
-                    });
-            }
+    //                 )
+    //                 .then(data => {
+    //                     // console.log(data)
+    //                     setOrders(data);
+    //                 });
+    //         }
 
 
 
+    //     }
+    // }, [user])
+
+
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`https://protected-anchorage-05977.herokuapp.com/order?email=${user.email}`, {
+        method: 'GET',
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
-    }, [user])
+
+    })
+        .then(res => res.json())
+    )
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
+
+
+
+    // const userDetails = orders?.shift();
+
     // console.log(orders)
-    if (loading || (orders?.length == 0)) {
+    if (loading || (orders?.length === 0)) {
         return <Loading></Loading>
     }
 
     // console.log(orders)
     return (
         <div>
-            <div class="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto  mb-24">
+            <div class="my-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto  mb-24">
 
 
                 <div class="flex justify-start item-start space-y-2 flex-col">
@@ -61,9 +87,11 @@ const MyOrders = () => {
                             <p class="text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800">Customer’s Cart</p>
 
                             {
-                                orders.map(order => <MyOrderDetails
+                                orders?.map(order => <MyOrderDetails
                                     key={order._id}
                                     order={order}
+                                    refetch={refetch}
+                                    setDeletingOrder={setDeletingOrder}
                                 ></MyOrderDetails>)
                             }
 
@@ -71,7 +99,6 @@ const MyOrders = () => {
 
 
                         </div>
-
 
 
 
@@ -126,6 +153,14 @@ const MyOrders = () => {
 
                 </div>
             </div>
+
+            {
+                deletingOrder && <DeleteConfirmModal
+                    deletingOrder={deletingOrder}
+                    refetch={refetch}
+                    setDeletingOrder={setDeletingOrder}
+                ></DeleteConfirmModal>
+            }
         </div>
     );
 };

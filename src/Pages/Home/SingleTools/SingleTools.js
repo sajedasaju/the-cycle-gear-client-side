@@ -13,7 +13,7 @@ const SingleTools = ({ tool }) => {
 
 
 
-        <div className=" lg:max-w-lg card flex flex-col justify-center p-2 md:p-6 lg:p-6 bg-white rounded-lg shadow-2xl  transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-lg">
+        <div className=" lg:max-w-lg card flex flex-col justify-center p-2 md:p-6 lg:p-6 bg-white rounded-lg shadow-2xl  transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-lg transform transition-all duration-300 scale-100 hover:scale-95">
             <div className="prod-title">
                 <p className="text-xl  text-gray-900 font-bold">{name}</p>
 
