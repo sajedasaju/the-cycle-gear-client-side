@@ -22,13 +22,13 @@ const Navbar = () => {
             <ul class="p-2 bg-base-100 z-50	">
                 <li><Link to='/'>Summary</Link></li>
                 <li><Link to='/'>Review</Link></li>
-                <li><Link to='/'>Items</Link></li>
+                <li><Link to='/'>Tools</Link></li>
                 <li><Link to='/'>Footer</Link></li>
             </ul>
         </li>
         <li><Link to='/'>Tools</Link></li>
         <li><Link to='/review'>Reviews</Link></li>
-        <li><Link to='/about'>About</Link></li>
+        <li><Link to='/blog'>Blogs</Link></li>
 
 
         {

@@ -9,12 +9,15 @@ import addressIcon from '../../assets/icons/address.png'
 import Loading from './../Shared/Loading/Loading';
 import { useQuery } from 'react-query';
 import DeleteConfirmModal from './DeleteConfirmModal';
+import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 
 const MyOrders = () => {
     // const [orders, setOrders] = useState([])
     const [user, loading] = useAuthState(auth)
     const [deletingOrder, setDeletingOrder] = useState(null)
-    console.log(deletingOrder)
+    const navigate = useNavigate();
+    // console.log(deletingOrder)
 
 
     // let userDetails;
@@ -52,7 +55,14 @@ const MyOrders = () => {
         }
 
     })
-        .then(res => res.json())
+        .then(res => {
+            if (res.status === 401 || res.status === 403) {
+                signOut(auth);
+                localStorage.removeItem('accessToken')
+                navigate('/')
+            }
+            return res.json()
+        })
     )
 
     if (isLoading) {

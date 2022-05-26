@@ -1,5 +1,6 @@
 import React from 'react';
 import HomeTools from '../HomeTools/HomeTools';
+import ShowReview from '../ShowReview/ShowReview';
 import Banner from './../Banner/Banner';
 
 const Home = () => {
@@ -7,6 +8,8 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <HomeTools></HomeTools>
+            <ShowReview></ShowReview>
+
 
             <div class="container mx-auto p-9 bg-white max-w-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
                 <img class="rounded-xl" src="https://images.unsplash.com/photo-1547517023-7ca0c162f816" alt="" />
@@ -71,7 +74,7 @@ const Home = () => {
 
 
 
-            <div class="container mx-auto  lg:px-20 "
+            {/* <div class="container mx-auto  lg:px-20 "
             // style={
             //     {
             //         'background': 'linear-gradient(90deg, #d53369 0%, #daae51 100%)'
@@ -119,7 +122,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
 
 

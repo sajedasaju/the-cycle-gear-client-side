@@ -17,7 +17,8 @@ const MyReview = () => {
         const review = {
             rate: data.rate,
             review: data.review,
-            email: user?.email
+            email: user?.email,
+            name: user?.displayName
         }
 
         //send to  database

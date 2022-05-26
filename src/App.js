@@ -19,6 +19,7 @@ import AddTools from './Pages/Dashboard/AddTools';
 import ToolDetails from './Pages/Home/ToolDetails/ToolDetails';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Payment from './Pages/Dashboard/Payment';
+import Blog from './Pages/Home/Blog/Blog';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="*" element={<NotFound />} />
