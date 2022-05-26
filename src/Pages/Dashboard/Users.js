@@ -1,9 +1,13 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useQuery } from 'react-query';
+import auth from '../../firebase.init';
 import Loading from './../Shared/Loading/Loading';
 import SingleUser from './SingleUser';
+import { useNavigate } from 'react-router-dom';
 
 const Users = () => {
+    const navigate = useNavigate();
 
     const { isLoading, data: users, refetch } = useQuery('users', () => fetch('https://protected-anchorage-05977.herokuapp.com/user', {
         method: 'GET',
@@ -11,7 +15,14 @@ const Users = () => {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
 
-    }).then(res => res.json()))
+    }).then(res => {
+        if (res.status === 401 || res.status === 403) {
+            signOut(auth);
+            localStorage.removeItem('accessToken')
+            navigate('/')
+        }
+        return res.json()
+    }))
     if (isLoading) {
         return <Loading></Loading>
     }

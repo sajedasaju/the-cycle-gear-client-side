@@ -20,6 +20,9 @@ import ToolDetails from './Pages/Home/ToolDetails/ToolDetails';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Payment from './Pages/Dashboard/Payment';
 import Blog from './Pages/Home/Blog/Blog';
+import Portfolio from './Pages/Home/Portfolio/Portfolio';
+import ManageOrders from './Pages/Dashboard/ManageOrders';
+import ManageTools from './Pages/Dashboard/ManageTools';
 
 function App() {
   return (
@@ -29,6 +32,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="*" element={<NotFound />} />
@@ -58,6 +62,14 @@ function App() {
 
           <Route path='addTool' element={<RequireAdmin>
             <AddTools></AddTools>
+          </RequireAdmin>} ></Route>
+
+          <Route path='manageOrder' element={<RequireAdmin>
+            <ManageOrders></ManageOrders>
+          </RequireAdmin>} ></Route>
+
+          <Route path='manageTool' element={<RequireAdmin>
+            <ManageTools></ManageTools>
           </RequireAdmin>} ></Route>
 
         </Route>

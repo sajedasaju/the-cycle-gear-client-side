@@ -27,7 +27,7 @@ const Navbar = () => {
             </ul>
         </li>
         <li><Link to='/'>Tools</Link></li>
-        <li><Link to='/review'>Reviews</Link></li>
+        <li><Link to='/portfolio'>Portfolio</Link></li>
         <li><Link to='/blog'>Blogs</Link></li>
 
 
@@ -39,19 +39,26 @@ const Navbar = () => {
             <>
                 <div className='pl-0'>
                     <button onClick={logout} className="btn btn-ghost pr-0">Sign Out</button>
-                    <div className="avatar">
+
+
+                </div>
+                {
+                    (user?.photoURL) ? <div className="avatar">
                         <div className="w-12 rounded-full">
                             <img src={user?.photoURL} alt='' />
+
                         </div>
                     </div>
-                </div>
+                        :
+                        <p className='text-red-900'>{user?.displayName.split(' ')[0]}</p>
+                }
             </>
             : <Link to='/login'>Login</Link>}</li>
     </>
     return (
 
 
-        <div className="navbar bg-base-100 bg-red-300">
+        <div className="navbar bg-base-100 bg-red-300 ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
