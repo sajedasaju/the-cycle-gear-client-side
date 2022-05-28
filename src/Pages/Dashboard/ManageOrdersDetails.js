@@ -41,17 +41,17 @@ const ManageOrdersDetails = ({ order, refetch, setDeletingOrder }) => {
 
             <td className="p-2  text-left block md:table-cell border-x-2"><span className="inline-block w-1/3 md:hidden font-bold">Tool Name</span>{toolName}</td>
 
-            <td className="p-2  text-left block md:table-cell border-x-2"><span className="inline-block w-1/3 md:hidden font-bold">Ordered By</span>{userName}</td>
+            <td className="p-2  text-left block md:table-cell border-x-2"><span className="inline-block w-1/3 md:hidden font-bold">Ordered By</span>{email}</td>
             <td className="p-2  text-left block md:table-cell"><span className="inline-block w-1/3 md:hidden font-bold">Ordered Quantity</span>{orderedQuantity}</td>
 
 
             <td className="p-2  text-left block md:table-cell border-x-2">
-                <span className="inline-block w-1/3 md:hidden font-bold">Payment</span>
+                <span className="inline-block w-1/3 md:hidden font-bold">Status</span>
                 {
                     (order.paid && order.pandingChange !== 'shipped') &&
                     <>
 
-                        <button className='btn btn-xs btn-red-500' onClick={handleSubmit}>Panding</button>
+                        <button className='btn btn-xs btn-red-500 mr-2' onClick={handleSubmit}>Panding</button>
                     </>
                     // <label onClick={() => setDeletingOrder(order)}
                     //     for="delete-confirm-modal" className="btn btn-xs btn-error">Delete</label>
@@ -65,9 +65,9 @@ const ManageOrdersDetails = ({ order, refetch, setDeletingOrder }) => {
                 }
                 {
                     (!order.paid) ?
-                        <button disabled className='btn btn-xs btn-red-500'>Unpaid</button>
+                        <button disabled className='btn btn-xs btn-red-500 mr-3'>Unpaid</button>
                         :
-                        <button disabled className='btn btn-xs btn-red-500'>Paid</button>
+                        <button disabled className='btn btn-xs btn-red-500 mr-3'>Paid</button>
 
                 }
                 {
@@ -105,7 +105,7 @@ const ManageOrdersDetails = ({ order, refetch, setDeletingOrder }) => {
                         <label onClick={() => setDeletingOrder(order)}
                             for="delete-confirm-modal" className="btn btn-xs btn-error bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded">Delete</label>
                         :
-                        <button disabled className='btn btn-xs btn-error bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded'>Delete</button>
+                        <button disabled className='btn btn-xs btn-error bg-red-500 hover:bg-red-700 text-black font-bold py-1 px-2 border border-red-500 rounded'>Delete</button>
 
                 }
 

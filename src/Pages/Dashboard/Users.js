@@ -31,7 +31,10 @@ const Users = () => {
 
 
     return (
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto mt-12">
+            <div className="flex flex-col w-full border-opacity-50 mt-6 lg:w-4/5	 md:w-4/5 sm:w-full mx-auto">
+                <h2 className='text-2xl text-center mb-12 font-bold border-y-2 py-3 font-serif text-primary text-[#7aad3b]'>ADD TOOLS</h2>
+            </div>
 
             <div className="p-4 max-w-11/12 bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <div className="flex justify-between items-center mb-4 pb-4 border-b">

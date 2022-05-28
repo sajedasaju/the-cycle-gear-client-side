@@ -13,7 +13,9 @@ const Summary = () => {
                     <div class="mx-auto container w-full flex flex-col justify-center items-center">
                         <div class="flex justify-center items-center flex-col">
                             <div class="mt-20 text-center">
-                                <h2 class="lg:text-5xl md:text-5xl text-4xl font-black leading-10 text-white">Why The Cycle Gear Best In This Field</h2>
+                                <h2 class="lg:text-5xl md:text-5xl text-4xl font-black leading-10 text-white">Global Scale & Reach
+
+                                </h2>
                             </div>
                             <div class="mt-6 mx-2 md:mx-0 text-center">
                                 <p class="lg:text-lg md:text-base leading-6 text-sm text-white">Consistent quality and you get results. No matter what,Making customer happy is our goal.</p>

@@ -63,8 +63,8 @@ const AddTools = () => {
     return (
         <div className=''>
 
-            <div className="flex flex-col w-full border-opacity-50 mt-12 justify-center items-center justify-items-center">
-                <h2 className='text-yellow-500  text-3xl font-bold text-center mb-10'>Add Tools</h2>
+            <div className="flex flex-col w-full border-opacity-50 mt-6 lg:w-4/5	 md:w-4/5 sm:w-full mx-auto">
+                <h2 className='text-2xl text-center mb-12 font-bold border-y-2 py-3 font-serif text-primary text-[#7aad3b]'>ADD TOOLS</h2>
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -194,7 +194,7 @@ const AddTools = () => {
                     <div className="buttons flex">
 
 
-                        <button type='submit' className="text-white px-4 w-auto h-10 bg-amber-600 rounded hover:bg-amber-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none">Add</button>
+                        <button type='submit' className="text-white px-4 w-auto h-10 bg-amber-600 rounded hover:bg-[#56792a] active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none bg-secondary ">Add</button>
                     </div>
                 </div>
 

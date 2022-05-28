@@ -91,16 +91,16 @@ const MyProfile = () => {
     return (
         <div>
 
-            <div class="max-w-5xl sm:mr-auto mr-auto">
+            <div class="max-w-5xl sm:mr-auto mr-auto ">
                 {/* <div class="max-w-5xl sm:mx-auto my-24 mx-4"> */}
-                <div class="">
+                <div class="mb-12">
                     <div
-                        class="bg-[#b7cba0ed]  rounded-md rounded-br-[100px] sm:rounded-br-[250px] w-full shadow-md flex flex-wrap flex-col-reverse md:flex-row p-6 sm:p-8 w-screen">
+                        class="bg-[#b7cba0ed]  rounded-md rounded-br-[100px] sm:rounded-br-[250px] w-full shadow-md flex flex-wrap flex-col-reverse md:flex-row p-6 sm:p-8 w-full">
                         <div class="w-full sm:w-2/3 text-center sm:text-left">
                             <h1 class="text-3xl sm:text-5xl font-bold text-gray-100 sm:leading-relaxed mt-4">Your Profile Can Update As You Want</h1>
                             <p class="text-white text-sm sm:text-base py-4 sm:pr-5">Update your profile if needed.</p>
                             <button
-                                class="px-6 py-3 bg-pink-500 text-gray-200 mt-4 mb-8 text-base font-medium rounded-md shadow-md hover:bg-pink-600 hover:text-gray-50 bg-gradient-to-l from-[#87c738] to-[#4b7420] ">Update Now</button>
+                                class="px-6 py-3 bg-pink-500 text-gray-200 mt-4 mb-8 text-base font-medium rounded-md shadow-md hover:text-gray-50 hover:bg-[#577a2c]  bg-[#7aad3b] ">Update Now</button>
                         </div>
                         <div class="w-full md:w-1/3">
                             <img
@@ -254,7 +254,7 @@ const MyProfile = () => {
                     <div className="buttons flex">
 
 
-                        <button type='submit' className="text-white px-4 w-auto h-10  rounded hover:bg-amber-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none bg-gradient-to-l from-[#87c738] to-[#4b7420] ">Update</button>
+                        <button type='submit' className="text-white px-4 w-auto h-10  rounded hover:bg-amber-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none  hover:bg-[#577a2c]  bg-[#7aad3b] ">Update</button>
                     </div>
                 </div>
 

@@ -46,7 +46,7 @@ const ManageOrders = () => {
                             <th className="bg-gray-300 p-2 text-gray-600 font-bold md:border md:border-grey-500 text-left block md:table-cell">Tool Name</th>
                             <th className="bg-gray-300 p-2 text-gray-600 font-bold md:border md:border-grey-500 text-left block md:table-cell">Ordered By</th>
                             <th className="bg-gray-300 p-2 text-gray-600 font-bold md:border md:border-grey-500 text-left block md:table-cell">Ordered Quantity</th>
-                            <th className="bg-gray-300 p-2 text-gray-600 font-bold md:border md:border-grey-500 text-left block md:table-cell">Payment</th>
+
                             <th className="bg-gray-300 p-2 text-gray-600 font-bold md:border md:border-grey-500 text-left block md:table-cell">Status</th>
                             <th className="bg-gray-300 p-2 text-gray-600 font-bold md:border md:border-grey-500 text-left block md:table-cell">Actions</th>
                         </tr>

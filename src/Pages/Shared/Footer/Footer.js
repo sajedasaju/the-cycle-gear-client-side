@@ -51,7 +51,7 @@ const Footer = () => {
                             </nav>
                         </div>
                         <div className=" md:px-8 py-4 md:py-0">
-                            <h5 className="text-xl font-bold text-[#81B441]">Customer SErvice</h5>
+                            <h5 className="text-xl font-bold text-[#81B441]">Customer Service</h5>
                             <nav className="mt-4">
                                 <ul className="grid lg:grid-cols-2">
                                     <li className="mb-2">

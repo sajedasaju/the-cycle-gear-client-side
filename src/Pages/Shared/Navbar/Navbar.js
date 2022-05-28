@@ -52,7 +52,7 @@ const Navbar = () => {
                         </div>
                     </div>
                         :
-                        <p className='bg-[#81B441]'>{user?.displayName}</p>
+                        <p className='bg-[#81B441] text-white font-bold'>{user?.displayName}</p>
                 }
             </>
             : <Link to='/login'>Login</Link>}</li>
