@@ -26,7 +26,7 @@ const HomeTools = () => {
                 </div>
                 <div className='flex items-end mr-3 mt-6'>
                     <Link to='/allTool' className=" ml-auto inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white  rounded-lg focus:ring-4 focus:outline-none   bg-[#7aad3b] hover:padding-x-2 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-[#5b7d33]  duration-300">
-                        Manage Inventories
+                        All Tools
                         <svg className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </Link>
                 </div>
