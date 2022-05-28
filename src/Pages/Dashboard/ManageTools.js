@@ -7,7 +7,7 @@ import DeleteToolModal from './DeleteToolModal';
 
 const ManageTools = () => {
     const [deletingTool, setDeletingTool] = useState(null)
-    const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch('http://localhost:5000/tool')
+    const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch('https://protected-anchorage-05977.herokuapp.com/tool')
         .then(res => res.json())
     )
 

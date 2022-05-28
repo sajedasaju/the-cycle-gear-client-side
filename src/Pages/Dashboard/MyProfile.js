@@ -11,7 +11,7 @@ const MyProfile = () => {
     const [user] = useAuthState(auth)
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`http://localhost:5000/user/${user?.email}`)
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`https://protected-anchorage-05977.herokuapp.com/user/${user?.email}`)
         .then(res => res.json())
     )
 
@@ -62,7 +62,7 @@ const MyProfile = () => {
         console.log("USER", user)
 
         //update backend after payment successfull
-        const url = `http://localhost:5000/user/${users._id}`
+        const url = `https://protected-anchorage-05977.herokuapp.com/user/${users._id}`
         fetch(url, {
             method: "PATCH",
             headers: {

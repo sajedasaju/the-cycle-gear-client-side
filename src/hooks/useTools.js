@@ -6,7 +6,7 @@ const useTools = () => {
     // console.log(isLoading)
     useEffect(() => {
         // setIsLoading(true);
-        fetch('http://localhost:5000/tool')
+        fetch('https://protected-anchorage-05977.herokuapp.com/tool')
             .then((response) => response.json())
             .then((data) => {
 

@@ -16,7 +16,7 @@ const CheckoutForm = ({ order }) => {
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://protected-anchorage-05977.herokuapp.com/create-payment-intent", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -90,7 +90,7 @@ const CheckoutForm = ({ order }) => {
             }
 
             //update backend after payment successfull
-            const url = `http://localhost:5000/order/${_id}`
+            const url = `https://protected-anchorage-05977.herokuapp.com/order/${_id}`
             fetch(url, {
                 method: "PATCH",
                 headers: {

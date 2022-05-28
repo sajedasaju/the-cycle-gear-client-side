@@ -8,7 +8,7 @@ const ManageOrdersDetails = ({ order, refetch, setDeletingOrder }) => {
 
 
     const handleSubmit = () => {
-        fetch(`http://localhost:5000/order/${_id}`, {
+        fetch(`https://protected-anchorage-05977.herokuapp.com/order/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
