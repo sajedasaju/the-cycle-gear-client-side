@@ -1,5 +1,6 @@
-.App {
-  text-align: center;
+.gradiantbtn{
+  background: linear-gradient(90deg, rgba(129,167,82,0.9668242296918768) 0%, rgba(202,230,168,1) 100%);
+
 }
 
 .App-logo {

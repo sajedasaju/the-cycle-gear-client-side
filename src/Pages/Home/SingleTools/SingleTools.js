@@ -17,7 +17,7 @@ const SingleTools = ({ tool }) => {
             <div className="prod-title">
                 <p className="text-xl  text-gray-900 font-bold">{name}</p>
 
-                {description.length > 70 ? <p title={description} className="uppercase text-sm text-gray-400">{description.slice(0, 70) + '....'}</p> : <p className="uppercase text-sm text-gray-400">{description}</p>}
+                {description.length > 70 ? <p title={description} className=" text-sm text-gray-500 mb-2">{description.slice(0, 70) + '....'}</p> : <p className="uppercase text-sm text-gray-400">{description}</p>}
 
             </div>
             <div className="prod-img relative">
@@ -34,10 +34,10 @@ const SingleTools = ({ tool }) => {
 
                 </div>
                 <div className="flex flex-col md:flex-row justify-between items-center text-gray-900">
-                    <p className="font-bold text-xl">${price}</p>
+                    <p className="font-bold text-2xl text-[#7aad3b]">${price}</p>
                     <button
                         onClick={() => { navigateToToolDetail(_id) }}
-                        className="px-6 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">Add
+                        className="px-4 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-[#81B441] hover:text-white border-2 border-gray-900 hover:border-none focus:outline-none text-sm ">Add
                         to cart</button>
                 </div>
             </div>

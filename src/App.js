@@ -23,6 +23,7 @@ import Blog from './Pages/Home/Blog/Blog';
 import Portfolio from './Pages/Home/Portfolio/Portfolio';
 import ManageOrders from './Pages/Dashboard/ManageOrders';
 import ManageTools from './Pages/Dashboard/ManageTools';
+import AllTools from './Pages/Home/AllTools/AllTools';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/allTool" element={<AllTools />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
@@ -53,6 +55,7 @@ function App() {
           <Route path='orders' element={<MyOrders></MyOrders>} ></Route>
           <Route path='reviews' element={<MyReview></MyReview>} ></Route>
           <Route path='payment/:id' element={<Payment></Payment>} ></Route>
+
 
 
 

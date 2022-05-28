@@ -41,7 +41,7 @@ const Sociallogin = () => {
 
             <div className="btn-wrapper text-center">
 
-                <button onClick={() => signInWithGoogle()} className="btn w-full max-w-xs text-white bg-gradient-to-b from-gray-700 to-gray-900 font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6 " type="button">
+                <button onClick={() => signInWithGoogle()} className="btn w-full max-w-xs text-white  font-medium p-2 md:p-4 text-white uppercase w-full rounded-2xl mb-6  border-none bg-gradient-to-l from-[#78a640] to-[#6e8159]  " type="button">
                     <img alt="..." className="w-5 mr-1" src="https://demos.creative-tim.com/notus-js/assets/img/google.svg" />Continue With Google </button>
 
             </div>

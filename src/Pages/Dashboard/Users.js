@@ -12,6 +12,7 @@ const Users = () => {
     const { isLoading, data: users, refetch } = useQuery('users', () => fetch('https://protected-anchorage-05977.herokuapp.com/user', {
         method: 'GET',
         headers: {
+            'content-type': 'application/json',
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
 
@@ -42,7 +43,7 @@ const Users = () => {
 
 
                         {
-                            users.map(user => <SingleUser
+                            users?.map(user => <SingleUser
                                 key={user._id}
                                 user={user}
                                 refetch={refetch}

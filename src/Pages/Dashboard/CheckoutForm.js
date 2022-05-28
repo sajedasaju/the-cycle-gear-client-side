@@ -109,7 +109,7 @@ const CheckoutForm = ({ order }) => {
 
     return (
 
-        <div class="h-full  text-center sm:text-left bg-blue-100 rounded-lg p-4">
+        <div className="h-full  text-center sm:text-left bg-blue-100 rounded-lg p-4">
             <form onSubmit={handleSubmit}>
                 <CardElement
                     options={{
