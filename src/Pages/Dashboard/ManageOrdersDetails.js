@@ -51,7 +51,7 @@ const ManageOrdersDetails = ({ order, refetch, setDeletingOrder }) => {
                     (order.paid && order.pandingChange !== 'shipped') &&
                     <>
 
-                        <button className='btn btn-xs btn-red-500 mr-2' onClick={handleSubmit}>Panding</button>
+                        <button className='btn btn-xs btn-red-500 mr-2' onClick={handleSubmit}>Pending</button>
                     </>
                     // <label onClick={() => setDeletingOrder(order)}
                     //     for="delete-confirm-modal" className="btn btn-xs btn-error">Delete</label>

@@ -130,8 +130,8 @@ const ToolDetails = () => {
                 }}
                 >
                     <div className="lg:w-3/5 lg:pr-0 pr-0">
-                        <h1 className="title-font font-medium font-bold text-5xl text-[#81B441]">Slow-carb next level shoindcgoitch ethical authentic, poko scenester</h1>
-                        <p className="leading-relaxed mt-4 text-white text-lg">Poke slow-carb mixtape knausgaard, typewriter street art gentrify hammock starladder roathse. Craies vegan tousled etsy austin.</p>
+                        <h1 className="title-font font-medium font-bold text-5xl text-[#81B441]">Want to add this product to your cart?</h1>
+                        <p className="leading-relaxed mt-4 text-white text-lg">You can add the product bu give all needed information.and boom ,it will added to your order list..</p>
                     </div>
 
 

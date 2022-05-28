@@ -254,7 +254,7 @@ const MyProfile = () => {
                     <div className="buttons flex">
 
 
-                        <button type='submit' className="text-white px-4 w-auto h-10  rounded hover:bg-amber-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none  hover:bg-[#577a2c]  bg-[#7aad3b] ">Update</button>
+                        <button type='submit' className="text-white px-4 w-auto h-10  rounded  active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none  hover:bg-[#577a2c]  bg-[#7aad3b] ">Update</button>
                     </div>
                 </div>
 
