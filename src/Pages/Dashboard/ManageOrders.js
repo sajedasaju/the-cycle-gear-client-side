@@ -10,7 +10,7 @@ import DeleteConfirmModal from './DeleteConfirmModal';
 const ManageOrders = () => {
     const [deletingOrder, setDeletingOrder] = useState(null)
     const navigate = useNavigate();
-    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('https://protected-anchorage-05977.herokuapp.com/order', {
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('https://protected-anchorage-05977.herokuapp.com/manageorder', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

@@ -52,7 +52,7 @@ const Banner = () => {
                         </div>
                         <div className="col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-5 xxl:col-span-5">
                             <div className="relative bg-pink-900 h-full md:h-96 w-full bg-opacity-50 rounded-tr-lg rounded-br-lg">
-                                <div className="p-8">
+                                <div className="md:p-8 lg:p-8 p-1 pb-0">
                                     <p className="text-white text-xl md:text-xl lg:text-xl mb-4">
                                         Largest bicycle accessories manufacturer.You can order your needed bicycle accessories and get it by our home delivery services.
                                     </p>

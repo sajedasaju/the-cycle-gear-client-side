@@ -45,14 +45,14 @@ const Navbar = () => {
 
                 </div>
                 {
-                    (user?.photoURL) ? <div className="avatar">
+                    (user.photoURL) ? <div className="avatar">
                         <div className="w-12 rounded-full">
-                            <img src={user?.photoURL} alt='' />
+                            <img src={user.photoURL} alt='' />
 
                         </div>
                     </div>
                         :
-                        <p className='bg-[#81B441] text-white font-bold'>{user?.displayName}</p>
+                        <p className='bg-[#81B441] text-white font-bold'>{user.displayName}</p>
                 }
             </>
             : <Link to='/login'>Login</Link>}</li>

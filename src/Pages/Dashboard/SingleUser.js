@@ -3,6 +3,33 @@ import userIcon from '../../assets/icons/user_icon.png'
 import { toast } from 'react-toastify';
 
 const SingleUser = ({ user, refetch }) => {
+
+
+    // const { email, role } = user;
+    // const makeAdmin = () => {
+    //     fetch(https://protected-anchorage-05977.herokuapp.com/user/admin/${email}, {
+    //         method: 'PUT',
+    //         headers: {
+    //             authorization: Bearer ${localStorage.getItem('accessToken')}
+    //         }
+    //     })
+    //         .then(res => {
+    //             if (res.status === 403) {
+    //                 toast.error('Failed to make an admin');
+    //             }
+    //             return res.json()
+    //         })
+    //         .then(data => {
+    //             if (data.modifiedCount > 0) {
+    //                 refetch();
+    //                 toast.success(Successfully made an admin);
+    //             }
+    //         })
+    // }
+
+
+
+
     const { email, role } = user;
     const makeAdmin = () => {
         fetch(`https://protected-anchorage-05977.herokuapp.com/user/admin/${email}`, {

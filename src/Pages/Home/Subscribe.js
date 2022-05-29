@@ -5,7 +5,7 @@ const Subscribe = () => {
         <div className='mt-12'>
 
 
-            <section class="w-full bg-[#869f69c8] bg-[#b7cba0ed] ">
+            <section class="w-full bg-[#869f69c8] bg-[#b7cba0ed] pb-1">
                 <div class="container px-4 mx-auto">
                     <div class="grid grid-cols-1 mt-4 lg:grid-cols-3">
                         <div class="flex flex-row text-center justify-center text-white my-auto ">

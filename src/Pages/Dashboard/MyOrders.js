@@ -16,8 +16,34 @@ const MyOrders = () => {
     // const [orders, setOrders] = useState([])
     const [user, loading] = useAuthState(auth)
     const [deletingOrder, setDeletingOrder] = useState(null)
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     // console.log(deletingOrder)
+
+    const navigate = useNavigate();
+    const [orders, setOrders] = useState([]);
+    // const [deletingOrder, setDeletingOrder] = useState(null);
+    useEffect(() => {
+        if (user) {
+            fetch(`https://protected-anchorage-05977.herokuapp.com/order?email=${user.email}`, {
+                method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => {
+                    console.log('res', res);
+                    if (res.status === 401 || res.status === 403) {
+                        signOut(auth);
+                        localStorage.removeItem('accessToken');
+                        // navigate('/');
+                    }
+                    return res.json()
+                })
+                .then(data => {
+                    setOrders(data);
+                });
+        }
+    }, [user, deletingOrder])
 
 
     // let userDetails;
@@ -48,26 +74,27 @@ const MyOrders = () => {
     // }, [user])
 
 
-    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`https://protected-anchorage-05977.herokuapp.com/order?email=${user.email}`, {
-        method: 'GET',
-        headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        }
+    // const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`https://protected-anchorage-05977.herokuapp.com/order?email=${user.email}`, {
+    //     method: 'GET',
+    //     headers: {
+    //         'content-type': 'application/json',
+    //         authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    //     }
 
-    })
-        .then(res => {
-            if (res.status === 401 || res.status === 403) {
-                signOut(auth);
-                localStorage.removeItem('accessToken')
-                navigate('/')
-            }
-            return res.json()
-        })
-    )
+    // })
+    //     .then(res => {
+    //         if (res.status === 401 || res.status === 403) {
+    //             signOut(auth);
+    //             localStorage.removeItem('accessToken')
+    //             navigate('/')
+    //         }
+    //         return res.json()
+    //     })
+    // )
 
-    if (isLoading) {
-        return <Loading></Loading>
-    }
+    // if (isLoading) {
+    //     return <Loading></Loading>
+    // }
 
 
 
@@ -75,9 +102,9 @@ const MyOrders = () => {
     // const userDetails = orders?.shift();
 
     // console.log(orders)
-    if (loading || (orders?.length === 0)) {
-        return <Loading></Loading>
-    }
+    // if (loading || (orders?.length === 0)) {
+    //     return <Loading></Loading>
+    // }
 
     // console.log(orders)
     return (
@@ -100,7 +127,7 @@ const MyOrders = () => {
                                 orders?.map(order => <MyOrderDetails
                                     key={order._id}
                                     order={order}
-                                    refetch={refetch}
+                                    // refetch={refetch}
                                     setDeletingOrder={setDeletingOrder}
                                 ></MyOrderDetails>)
                             }
@@ -167,7 +194,7 @@ const MyOrders = () => {
             {
                 deletingOrder && <DeleteConfirmModal
                     deletingOrder={deletingOrder}
-                    refetch={refetch}
+                    // refetch={refetch}
                     setDeletingOrder={setDeletingOrder}
                 ></DeleteConfirmModal>
             }

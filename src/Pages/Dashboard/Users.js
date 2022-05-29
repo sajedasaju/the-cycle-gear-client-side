@@ -9,10 +9,9 @@ import { useNavigate } from 'react-router-dom';
 const Users = () => {
     const navigate = useNavigate();
 
-    const { isLoading, data: users, refetch } = useQuery('users', () => fetch('https://protected-anchorage-05977.herokuapp.com/user', {
+    const { isLoading, data: allusers, refetch } = useQuery('allusers', () => fetch('https://protected-anchorage-05977.herokuapp.com/alluser', {
         method: 'GET',
         headers: {
-            'content-type': 'application/json',
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
 
@@ -46,7 +45,7 @@ const Users = () => {
 
 
                         {
-                            users?.map(user => <SingleUser
+                            allusers?.map(user => <SingleUser
                                 key={user._id}
                                 user={user}
                                 refetch={refetch}

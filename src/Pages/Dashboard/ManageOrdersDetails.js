@@ -4,11 +4,11 @@ import { toast } from 'react-toastify';
 const ManageOrdersDetails = ({ order, refetch, setDeletingOrder }) => {
 
     const { _id, img, price, email, userName, toolName, address, phone, orderedQuantity } = order;
-    // console.log("from manage order details", order.status)
+
 
 
     const handleSubmit = () => {
-        fetch(`https://protected-anchorage-05977.herokuapp.com/order/${_id}`, {
+        fetch(`https://protected-anchorage-05977.herokuapp.com/manageorder/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -21,7 +21,7 @@ const ManageOrdersDetails = ({ order, refetch, setDeletingOrder }) => {
                 console.log(data)
                 if (data.modifiedCount > 0) {
                     refetch()
-                    toast.success(`Admin successfully added`)
+                    toast.success(` successfully shipped`)
                 }
 
             })
@@ -31,7 +31,7 @@ const ManageOrdersDetails = ({ order, refetch, setDeletingOrder }) => {
 
     return (
         <tr className=" border border-grey-500 md:border-none block md:table-row">
-            <td className="p-2  text-left block md:table-cell border-x-2"><span className="inline-block w-1/3 md:hidden font-bold ">Name</span>
+            <td className="p-2  text-left block md:table-cell border-x-2"><span className="inline-block w-1/3 md:hidden font-bold ">Tool Image</span>
                 <div className="avatar">
                     <div className="w-16 rounded">
                         <img src={img} alt="tool photo" />
