@@ -15,29 +15,29 @@ const ManageToolDetails = ({ tool, refetch, setDeletingTool }) => {
 
             </td>
             <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static  break-all">
-                <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase bg-[#b7cba0ed] ">Tool name</span>
+                <span className="lg:hidden absolute top-0 left-0  px-2 py-1 text-xs font-bold uppercase bg-[#b7cba0ed] ">Tool name</span>
                 <span className="rounded  py-1 px-3 text-md font-bold">{name}</span>
 
             </td>
             <td className="w-full lg:w-auto p-3 pt-6  text-gray-800 text-center border border-b block lg:table-cell relative lg:static  break-all">
-                <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase bg-[#b7cba0ed]">Description</span>
+                <span className="lg:hidden absolute top-0 left-0  px-2 py-1 text-xs font-bold uppercase bg-[#b7cba0ed]">Description</span>
                 {description}
             </td>
             <td className="w-full lg:w-auto p-3 text-gray-800 font-bold text-center border border-b block lg:table-cell relative lg:static  break-all">
-                <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase bg-[#b7cba0ed]">Price</span>
+                <span className="lg:hidden absolute top-0 left-0  px-2 py-1 text-xs font-bold uppercase bg-[#b7cba0ed]">Price</span>
                 ${price}
             </td>
             <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static  break-all">
-                <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase bg-[#b7cba0ed]">Quantity</span>
+                <span className="lg:hidden absolute top-0 left-0  px-2 py-1 text-xs font-bold uppercase bg-[#b7cba0ed]">Quantity</span>
                 {availableQuantity}
             </td>
             <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static  break-all">
-                <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase bg-[#b7cba0ed]">Minimum Order</span>
+                <span className="lg:hidden absolute top-0 left-0  px-2 py-1 text-xs font-bold uppercase bg-[#b7cba0ed]">Minimum Order</span>
                 <span className="rounded bg-[#dcfce7] py-1 px-3 text-xs font-bold">{minimumOrder}</span>
             </td>
 
             <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static  break-all">
-                <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase bg-[#b7cba0ed]">Actions</span>
+                <span className="lg:hidden absolute top-0 left-0  px-2 py-1 text-xs font-bold uppercase bg-[#b7cba0ed]">Actions</span>
                 <span className="text-yellow-500 flex items-center justify-center">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
