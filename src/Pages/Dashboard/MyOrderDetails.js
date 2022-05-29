@@ -86,7 +86,7 @@ const MyOrderDetails = ({ order, refetch, setDeletingOrder }) => {
                         <div className='flex flex-col items-end'>
 
                             <p>
-                                <span className='text-success'>panding</span>
+                                <span className='text-success'>pending</span>
                             </p>
                             <br />
 

@@ -161,13 +161,13 @@ space-y-1 pl-6">
                                         <li>
 
 
-                                            <Link to='https://decor-place.web.app/' className="text-teal-600"> The Decor Place </Link>
+                                            <a target='_blank' rel="noreferrer" href='https://decor-place.web.app/' className="text-teal-600"  > The Decor Place </a>
                                         </li>
                                         <li>
-                                            <Link to='https://fit-to-fly-13471.web.app/' className="text-teal-600"> Fit To Fly </Link>
+                                            <a target='_blank' rel="noreferrer" href='https://fit-to-fly-13471.web.app/' className="text-teal-600"> Fit To Fly </a>
                                         </li>
                                         <li>
-                                            <Link to='https://amaze-headphones.netlify.app/' className="text-teal-600"> Amaze Headphones </Link>
+                                            <a target='_blank' rel="noreferrer" href='https://amaze-headphones.netlify.app/' className="text-teal-600"> Amaze Headphones </a>
                                         </li>
 
                                     </ul>
