@@ -32,3 +32,8 @@ Live Link [The Cycle Gear](https://the-cycle-gear.web.app/).
 - Stripe
 
 * Mongodb
+
+### Admin Credentials:
+
+- Emaill: halim@gmail.com
+- Password : 123456
