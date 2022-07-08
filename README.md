@@ -35,5 +35,5 @@ Live Link [The Cycle Gear](https://the-cycle-gear.web.app/).
 
 ### Admin Credentials:
 
-- Emaill: ros@usa.com
+- Emaill: mon@uk.com
 - Password : 123456
