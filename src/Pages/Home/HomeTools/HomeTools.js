@@ -5,11 +5,11 @@ import Loading from "../../Shared/Loading/Loading";
 import { Link } from "react-router-dom";
 
 const HomeTools = () => {
-  const [tools, isLoading] = useTools();
-  console.log("isloading", isLoading);
+  const [tools, isLoadingTools] = useTools();
+  console.log("isloading", isLoadingTools);
   return (
     <>
-      {isLoading ? (
+      {isLoadingTools ? (
         <Loading></Loading>
       ) : (
         <>

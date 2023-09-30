@@ -15,16 +15,13 @@ const ManageOrdersDetails = ({ order, refetch, setDeletingOrder }) => {
   } = order;
 
   const handleSubmit = () => {
-    fetch(
-      `https://the-cycle-gear-server-side-project.vercel.app/manageorder/${_id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
-    )
+    fetch(`http://localhost:5000/manageorder/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
 
       .then((data) => {

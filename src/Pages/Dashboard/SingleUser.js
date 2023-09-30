@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 const SingleUser = ({ user, refetch }) => {
   // const { email, role } = user;
   // const makeAdmin = () => {
-  //     fetch(https://the-cycle-gear-server-side-project.vercel.app/user/admin/${email}, {
+  //     fetch(http://localhost:5000/user/admin/${email}, {
   //         method: 'PUT',
   //         headers: {
   //             authorization: Bearer ${localStorage.getItem('accessToken')}
@@ -27,15 +27,12 @@ const SingleUser = ({ user, refetch }) => {
 
   const { email, role } = user;
   const makeAdmin = () => {
-    fetch(
-      `https://the-cycle-gear-server-side-project.vercel.app/user/admin/${email}`,
-      {
-        method: "PUT",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
-    )
+    fetch(`http://localhost:5000/user/admin/${email}`, {
+      method: "PUT",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => {
         if (res.status === 403) {
           toast.error("failed to make an admin");

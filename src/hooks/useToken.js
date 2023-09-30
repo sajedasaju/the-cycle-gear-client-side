@@ -11,16 +11,13 @@ const useToken = (user) => {
       email: email,
     };
     if (email) {
-      fetch(
-        `https://the-cycle-gear-server-side-project.vercel.app/user/${email}`,
-        {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(currentUser),
-        }
-      )
+      fetch(`http://localhost:5000/user/${email}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(currentUser),
+      })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

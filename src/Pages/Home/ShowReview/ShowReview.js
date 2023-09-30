@@ -9,9 +9,7 @@ const ShowReview = () => {
     isLoading,
     refetch,
   } = useQuery("reviews", () =>
-    fetch("https://the-cycle-gear-server-side-project.vercel.app/review").then(
-      (res) => res.json()
-    )
+    fetch("http://localhost:5000/review").then((res) => res.json())
   );
 
   if (isLoading) {

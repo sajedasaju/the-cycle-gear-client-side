@@ -4,10 +4,10 @@ import useTools from "./../../../hooks/useTools";
 import SingleTools from "./../SingleTools/SingleTools";
 
 const AllTools = () => {
-  const [tools, isLoading] = useTools();
+  const [tools, isLoadingTools] = useTools();
   return (
     <>
-      {isLoading && <Loading></Loading>}
+      {isLoadingTools && <Loading></Loading>}
       <section className="w-4/5 mx-auto  my-20">
         <h2 className="text-2xl text-center mb-12 font-bold border-y-2 py-3 font-serif text-primary text-[#7aad3b]">
           FEATURED TOOLS

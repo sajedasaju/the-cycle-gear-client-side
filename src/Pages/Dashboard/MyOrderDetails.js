@@ -18,7 +18,7 @@ const MyOrderDetails = ({ order, refetch, setDeletingOrder }) => {
 
   // const handleDelete = id => {
   //     console.log("DATA")
-  //     fetch(`https://the-cycle-gear-server-side-project.vercel.app/order/${id}`, {
+  //     fetch(`http://localhost:5000/order/${id}`, {
   //         method: "DELETE",
   //         headers: {
   //             authorization: `Bearer ${localStorage.getItem('accessToken')}`

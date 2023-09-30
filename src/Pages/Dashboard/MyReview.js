@@ -27,7 +27,7 @@ const MyReview = () => {
     };
 
     //send to  database
-    fetch("https://the-cycle-gear-server-side-project.vercel.app/review", {
+    fetch("http://localhost:5000/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

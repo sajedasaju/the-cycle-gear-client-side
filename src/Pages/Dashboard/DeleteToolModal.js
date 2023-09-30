@@ -7,7 +7,7 @@ const DeleteToolModal = ({ deletingTool, refetch, setDeletingTool }) => {
 
   const handleDelete = (id) => {
     console.log("DATA", id);
-    fetch(`https://the-cycle-gear-server-side-project.vercel.app/tool/${id}`, {
+    fetch(`http://localhost:5000/tool/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

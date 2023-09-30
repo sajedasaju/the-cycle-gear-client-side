@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 const useToolDetail = (toolId) => {
   const [tool, setTool] = useState({});
   useEffect(() => {
-    const url = `https://the-cycle-gear-server-side-project.vercel.app/tool/${toolId}`;
+    const url = `http://localhost:5000/tool/${toolId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setTool(data));
   }, []);
 
-  // const { isLoading, data: tool, refetch } = useQuery('tool', () => fetch(`https://the-cycle-gear-server-side-project.vercel.app/tool/${toolId}`, {
+  // const { isLoading, data: tool, refetch } = useQuery('tool', () => fetch(`http://localhost:5000/tool/${toolId}`, {
   //     method: 'GET',
   //     headers: {
   //         authorization: `Bearer ${localStorage.getItem('accessToken')}`
