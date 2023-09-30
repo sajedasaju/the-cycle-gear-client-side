@@ -6,7 +6,7 @@ const useTools = () => {
   console.log(isLoadingTools);
   useEffect(() => {
     try {
-      fetch("http://localhost:5000/tool")
+      fetch("https://the-cycle-gear-server-side-project.vercel.app/tool")
         .then((response) => response.json())
         .then((data) => {
           setTools(data);

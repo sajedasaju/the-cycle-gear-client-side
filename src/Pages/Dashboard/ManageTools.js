@@ -12,7 +12,9 @@ const ManageTools = () => {
     isLoading,
     refetch,
   } = useQuery("tools", () =>
-    fetch("http://localhost:5000/tool").then((res) => res.json())
+    fetch("https://the-cycle-gear-server-side-project.vercel.app/tool").then(
+      (res) => res.json()
+    )
   );
 
   if (isLoading) {

@@ -38,7 +38,7 @@ const AddTools = () => {
           };
 
           //send to my database
-          fetch("http://localhost:5000/tool", {
+          fetch("https://the-cycle-gear-server-side-project.vercel.app/tool", {
             method: "POST",
             headers: {
               "content-type": "application/json",

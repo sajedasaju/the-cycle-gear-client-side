@@ -22,7 +22,9 @@ const MyProfile = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch(`http://localhost:5000/user/${user?.email}`).then((res) => res.json())
+    fetch(
+      `https://the-cycle-gear-server-side-project.vercel.app/user/${user?.email}`
+    ).then((res) => res.json())
   );
 
   // console.log(users)
@@ -34,7 +36,7 @@ const MyProfile = () => {
   //     email: email
   // }
   // if (email) {
-  //     fetch(`http://localhost:5000/user/${email}`, {
+  //     fetch(`https://the-cycle-gear-server-side-project.vercel.app/user/${email}`, {
   //         method: 'PUT',
   //         headers: {
   //             'content-type': 'application/json'
@@ -66,7 +68,7 @@ const MyProfile = () => {
     console.log("USER", user);
 
     //update backend after payment successfull
-    const url = `http://localhost:5000/user/${users._id}`;
+    const url = `https://the-cycle-gear-server-side-project.vercel.app/user/${users._id}`;
     fetch(url, {
       method: "PATCH",
       headers: {

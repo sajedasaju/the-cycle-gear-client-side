@@ -15,14 +15,17 @@ const CheckoutForm = ({ order }) => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:5000/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify({ price }),
-    })
+    fetch(
+      "https://the-cycle-gear-server-side-project.vercel.app/create-payment-intent",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify({ price }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.clientSecret) {
@@ -79,7 +82,7 @@ const CheckoutForm = ({ order }) => {
       };
 
       //update backend after payment successfull
-      const url = `http://localhost:5000/order/${_id}`;
+      const url = `https://the-cycle-gear-server-side-project.vercel.app/order/${_id}`;
       fetch(url, {
         method: "PATCH",
         headers: {

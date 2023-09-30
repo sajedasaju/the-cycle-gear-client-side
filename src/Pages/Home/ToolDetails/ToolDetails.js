@@ -45,7 +45,7 @@ const ToolDetails = () => {
     console.log(data.minimumOrder);
 
     //send to  database
-    fetch("http://localhost:5000/order", {
+    fetch("https://the-cycle-gear-server-side-project.vercel.app/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",

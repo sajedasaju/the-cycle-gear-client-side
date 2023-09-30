@@ -24,12 +24,15 @@ const MyOrders = () => {
   // const [deletingOrder, setDeletingOrder] = useState(null);
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/order?email=${user.email}`, {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      })
+      fetch(
+        `https://the-cycle-gear-server-side-project.vercel.app/order?email=${user.email}`,
+        {
+          method: "GET",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
         .then((res) => {
           console.log("res", res);
           if (res.status === 401 || res.status === 403) {
@@ -51,7 +54,7 @@ const MyOrders = () => {
   // useEffect(() => {
   //     if (user) {
   //         if (user) {
-  //             fetch(`http://localhost:5000/order?email=${user.email}`, {
+  //             fetch(`https://the-cycle-gear-server-side-project.vercel.app/order?email=${user.email}`, {
   //                 method: 'GET',
   //                 headers: {
   //                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -69,7 +72,7 @@ const MyOrders = () => {
   //     }
   // }, [user])
 
-  // const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`http://localhost:5000/order?email=${user.email}`, {
+  // const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`https://the-cycle-gear-server-side-project.vercel.app/order?email=${user.email}`, {
   //     method: 'GET',
   //     headers: {
   //         'content-type': 'application/json',

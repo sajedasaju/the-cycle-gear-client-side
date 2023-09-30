@@ -14,7 +14,7 @@ const Users = () => {
     data: allusers,
     refetch,
   } = useQuery("allusers", () =>
-    fetch("http://localhost:5000/alluser", {
+    fetch("https://the-cycle-gear-server-side-project.vercel.app/alluser", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

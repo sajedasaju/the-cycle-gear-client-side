@@ -15,7 +15,7 @@ const ManageOrders = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch("http://localhost:5000/manageorder", {
+    fetch("https://the-cycle-gear-server-side-project.vercel.app/manageorder", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

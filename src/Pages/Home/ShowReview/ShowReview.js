@@ -9,7 +9,9 @@ const ShowReview = () => {
     isLoading,
     refetch,
   } = useQuery("reviews", () =>
-    fetch("http://localhost:5000/review").then((res) => res.json())
+    fetch("https://the-cycle-gear-server-side-project.vercel.app/review").then(
+      (res) => res.json()
+    )
   );
 
   if (isLoading) {
@@ -22,7 +24,7 @@ const ShowReview = () => {
         What Customer Says
       </h2>
       <div className="holder grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-y-12 mt-16">
-        {reviews.map((SingleReview) => (
+        {reviews?.map((SingleReview) => (
           <SingleReviewDetails
             key={SingleReview._id}
             SingleReview={SingleReview}
