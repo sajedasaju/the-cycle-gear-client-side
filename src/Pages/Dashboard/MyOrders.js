@@ -1,148 +1,138 @@
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from './../../firebase.init';
-import MyOrderDetails from './MyOrderDetails';
-import phoneIcon from '../../assets/icons/phone-call.png'
-import addressIcon from '../../assets/icons/address.png'
-import Loading from './../Shared/Loading/Loading';
-import { useQuery } from 'react-query';
-import DeleteConfirmModal from './DeleteConfirmModal';
-import { useNavigate } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "./../../firebase.init";
+import MyOrderDetails from "./MyOrderDetails";
+import phoneIcon from "../../assets/icons/phone-call.png";
+import addressIcon from "../../assets/icons/address.png";
+import Loading from "./../Shared/Loading/Loading";
+import { useQuery } from "react-query";
+import DeleteConfirmModal from "./DeleteConfirmModal";
+import { useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
 
 const MyOrders = () => {
-    // const [orders, setOrders] = useState([])
-    const [user, loading] = useAuthState(auth)
-    const [deletingOrder, setDeletingOrder] = useState(null)
-    // const navigate = useNavigate();
-    // console.log(deletingOrder)
+  // const [orders, setOrders] = useState([])
+  const [user, loading] = useAuthState(auth);
+  const [deletingOrder, setDeletingOrder] = useState(null);
+  // const navigate = useNavigate();
+  // console.log(deletingOrder)
 
-    const navigate = useNavigate();
-    const [orders, setOrders] = useState([]);
-    // const [deletingOrder, setDeletingOrder] = useState(null);
-    useEffect(() => {
-        if (user) {
-            fetch(`https://protected-anchorage-05977.herokuapp.com/order?email=${user.email}`, {
-                method: 'GET',
-                headers: {
-                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-                .then(res => {
-                    console.log('res', res);
-                    if (res.status === 401 || res.status === 403) {
-                        signOut(auth);
-                        localStorage.removeItem('accessToken');
-                        // navigate('/');
-                    }
-                    return res.json()
-                })
-                .then(data => {
-                    setOrders(data);
-                });
+  const navigate = useNavigate();
+  const [orders, setOrders] = useState([]);
+  // const [deletingOrder, setDeletingOrder] = useState(null);
+  useEffect(() => {
+    if (user) {
+      fetch(
+        `https://the-cycle-gear-server-side-project.vercel.app/order?email=${user.email}`,
+        {
+          method: "GET",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
         }
-    }, [user, deletingOrder])
+      )
+        .then((res) => {
+          console.log("res", res);
+          if (res.status === 401 || res.status === 403) {
+            signOut(auth);
+            localStorage.removeItem("accessToken");
+            // navigate('/');
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setOrders(data);
+        });
+    }
+  }, [user, deletingOrder]);
 
+  // let userDetails;
+  // console.log(orders)
 
-    // let userDetails;
-    // console.log(orders)
+  // useEffect(() => {
+  //     if (user) {
+  //         if (user) {
+  //             fetch(`https://the-cycle-gear-server-side-project.vercel.app/order?email=${user.email}`, {
+  //                 method: 'GET',
+  //                 headers: {
+  //                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+  //                 }
+  //             })
+  //                 .then(res => res.json()
 
+  //                 )
+  //                 .then(data => {
+  //                     // console.log(data)
+  //                     setOrders(data);
+  //                 });
+  //         }
 
-    // useEffect(() => {
-    //     if (user) {
-    //         if (user) {
-    //             fetch(`https://protected-anchorage-05977.herokuapp.com/order?email=${user.email}`, {
-    //                 method: 'GET',
-    //                 headers: {
-    //                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-    //                 }
-    //             })
-    //                 .then(res => res.json()
+  //     }
+  // }, [user])
 
-    //                 )
-    //                 .then(data => {
-    //                     // console.log(data)
-    //                     setOrders(data);
-    //                 });
-    //         }
+  // const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`https://the-cycle-gear-server-side-project.vercel.app/order?email=${user.email}`, {
+  //     method: 'GET',
+  //     headers: {
+  //         'content-type': 'application/json',
+  //         authorization: `Bearer ${localStorage.getItem('accessToken')}`
+  //     }
 
+  // })
+  //     .then(res => {
+  //         if (res.status === 401 || res.status === 403) {
+  //             signOut(auth);
+  //             localStorage.removeItem('accessToken')
+  //             navigate('/')
+  //         }
+  //         return res.json()
+  //     })
+  // )
 
+  // if (isLoading) {
+  //     return <Loading></Loading>
+  // }
 
-    //     }
-    // }, [user])
+  // const userDetails = orders?.shift();
 
+  // console.log(orders)
+  // if (loading || (orders?.length === 0)) {
+  //     return <Loading></Loading>
+  // }
 
-    // const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`https://protected-anchorage-05977.herokuapp.com/order?email=${user.email}`, {
-    //     method: 'GET',
-    //     headers: {
-    //         'content-type': 'application/json',
-    //         authorization: `Bearer ${localStorage.getItem('accessToken')}`
-    //     }
+  // console.log(orders)
+  return (
+    <div>
+      <div className="my-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto  mb-24">
+        <div className="flex justify-start item-start space-y-2 flex-col">
+          <h1 className="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">
+            Order :{orders.length}
+          </h1>
+          <p className="text-base dark:text-gray-300 font-medium leading-6 text-gray-600">
+            21st Mart 2022 at 10:34 PM
+          </p>
+        </div>
 
-    // })
-    //     .then(res => {
-    //         if (res.status === 401 || res.status === 403) {
-    //             signOut(auth);
-    //             localStorage.removeItem('accessToken')
-    //             navigate('/')
-    //         }
-    //         return res.json()
-    //     })
-    // )
+        <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
+          <div className="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
+            <div className="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
+              <p className="text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800">
+                Customer’s Cart
+              </p>
 
-    // if (isLoading) {
-    //     return <Loading></Loading>
-    // }
+              {orders?.map((order) => (
+                <MyOrderDetails
+                  key={order._id}
+                  order={order}
+                  // refetch={refetch}
+                  setDeletingOrder={setDeletingOrder}
+                ></MyOrderDetails>
+              ))}
+            </div>
+          </div>
 
-
-
-
-    // const userDetails = orders?.shift();
-
-    // console.log(orders)
-    // if (loading || (orders?.length === 0)) {
-    //     return <Loading></Loading>
-    // }
-
-    // console.log(orders)
-    return (
-        <div>
-            <div className="my-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto  mb-24">
-
-
-                <div className="flex justify-start item-start space-y-2 flex-col">
-                    <h1 className="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">Order :{orders.length}</h1>
-                    <p className="text-base dark:text-gray-300 font-medium leading-6 text-gray-600">21st Mart 2022 at 10:34 PM</p>
-                </div>
-
-
-                <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
-                    <div className="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
-                        <div className="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
-                            <p className="text-lg md:text-xl dark:text-white font-semibold leading-6 xl:leading-5 text-gray-800">Customer’s Cart</p>
-
-                            {
-                                orders?.map(order => <MyOrderDetails
-                                    key={order._id}
-                                    order={order}
-                                    // refetch={refetch}
-                                    setDeletingOrder={setDeletingOrder}
-                                ></MyOrderDetails>)
-                            }
-
-
-
-
-                        </div>
-
-
-
-                    </div>
-
-
-                    {/* {
+          {/* {
                         //  userDetails = orders.shift()
                         orders?.length > 0 && <div className="bg-gray-50 dark:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col sticky top-0 h-full">
                             <h3 className="text-xl dark:text-white font-semibold leading-5 text-gray-800">Customer</h3>
@@ -186,20 +176,18 @@ const MyOrders = () => {
                             </div>
                         </div>
                     } */}
-
-
-                </div>
-            </div>
-
-            {
-                deletingOrder && <DeleteConfirmModal
-                    deletingOrder={deletingOrder}
-                    // refetch={refetch}
-                    setDeletingOrder={setDeletingOrder}
-                ></DeleteConfirmModal>
-            }
         </div>
-    );
+      </div>
+
+      {deletingOrder && (
+        <DeleteConfirmModal
+          deletingOrder={deletingOrder}
+          // refetch={refetch}
+          setDeletingOrder={setDeletingOrder}
+        ></DeleteConfirmModal>
+      )}
+    </div>
+  );
 };
 
 export default MyOrders;
