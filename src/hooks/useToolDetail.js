@@ -7,7 +7,7 @@ const useToolDetail = (toolId) => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setTool(data));
-  }, [tool]);
+  }, []);
 
   // const { isLoading, data: tool, refetch } = useQuery('tool', () => fetch(`https://the-cycle-gear-server-side-project.vercel.app/tool/${toolId}`, {
   //     method: 'GET',
