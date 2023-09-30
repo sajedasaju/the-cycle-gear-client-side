@@ -13,7 +13,7 @@ const useTools = () => {
         setIsLoading(false);
         // console.log("vitor", isLoading)
       });
-  }, []);
+  }, [isLoading]);
   return [tools, setTools, isLoading];
 };
 export default useTools;
